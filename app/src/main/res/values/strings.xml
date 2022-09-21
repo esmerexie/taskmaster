@@ -8,4 +8,7 @@
     <string name="add_task_to_list">Add Task To List</string>
     <string name="default_image">default image</string>
     <string name="go_home">Go Home</string>
+    <string name="name">Name</string>
+    <string name="enter_name_below">Enter Name Below</string>
+    <string name="update">Update</string>
 </resources>

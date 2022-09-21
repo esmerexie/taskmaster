@@ -5,6 +5,7 @@
     android:id="@+id/MainActivityMyTaskText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C56464"
     tools:context=".MainActivity">
 
     <Button
@@ -35,6 +36,7 @@
         android:layout_height="23dp"
         android:layout_marginTop="132dp"
         android:text="@string/my_tasks"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,6 +51,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainActivityTextView"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        app:srcCompat="@android:mipmap/sym_def_app_icon"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainActivityUsernameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="381dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/mainActivityAddTaskButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainActivitySettingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainActivityTaskOneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Task1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainActivityAddTaskButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
