@@ -1,6 +1,8 @@
 package com.example.taskmaster.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.taskmaster.R;
+import com.example.taskmaster.adapter.TaskListRecylerViewAdapter;
+import com.example.taskmaster.model.Task;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final String PRODUCT_NAME_EXTRA_TAG = "productName";
@@ -26,7 +33,23 @@ public class MainActivity extends AppCompatActivity {
         createAllTaskButton();
         createTaskOneButton();
         createSettingsButton();
+        setUpTaskRecyclerView();
+    }
 
+    private void setUpTaskRecyclerView(){
+        RecyclerView taskRecyclerView = findViewById(R.id.mainActivityRecyclerView);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        taskRecyclerView.setLayoutManager(layoutManager);
+
+        List<Task> tasks = new ArrayList<>();
+
+        tasks.add(new Task("Hit the Gym", "GO HIT THE GYM LAZY!", "Not Completed"));
+        tasks.add(new Task("Practice Coding!", "Whiteboard Datastructures and Algo", "Completed"));
+
+
+        TaskListRecylerViewAdapter adapter = new TaskListRecylerViewAdapter(tasks);
+        taskRecyclerView.setAdapter(adapter);
     }
 
     @Override
