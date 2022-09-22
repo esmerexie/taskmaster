@@ -19,63 +19,62 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-       createAddTaskButton();
-       createAllTaskButton();
-       createTaskOneButton();
-       createSettingsButton();
+        createAddTaskButton();
+        createAllTaskButton();
+        createTaskOneButton();
+        createSettingsButton();
 
     }
 
-//    @Override
-//    protected void onResume(){
-//        super.onResume();
-//        String userName = sharedPreferences.getString(SettingsPageActivity.USER_NAME_TAG, "No username");
-//        TextView userNameEdited = findViewById(R.id.mainActivityUsernameTextView);
-//        userNameEdited.setText(userName + "'s Tasks");
-//    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        String userName = sharedPreferences.getString(SettingsPageActivity.USER_NAME_TAG, "No username");
+        TextView userNameEdited = findViewById(R.id.mainActivityUsernameTextView);
+        userNameEdited.setText(userName + "'s Tasks");
+    }
 
 
     private void createAddTaskButton() {
-            Button addTaskBttn = MainActivity.this.findViewById(R.id.mainActivityAddTaskButton);
+        Button addTaskBttn = MainActivity.this.findViewById(R.id.mainActivityAddTaskButton);
 
-            addTaskBttn.setOnClickListener(view -> {
+        addTaskBttn.setOnClickListener(view -> {
 
-                Intent goToAddTaskPage = new Intent(MainActivity.this, AddTaskActivity.class);
-                startActivity(goToAddTaskPage);
-            });
-        }
+            Intent goToAddTaskPage = new Intent(MainActivity.this, AddTaskActivity.class);
+            startActivity(goToAddTaskPage);
+        });
+    }
 
-    private void createAllTaskButton(){
-                Button allTaskBttn = MainActivity.this.findViewById(R.id.MainActivityAllTaskButton);
+    private void createAllTaskButton() {
+        Button allTaskBttn = MainActivity.this.findViewById(R.id.MainActivityAllTaskButton);
 
-                allTaskBttn.setOnClickListener(view -> {
+        allTaskBttn.setOnClickListener(view -> {
 
-                    Intent goToAllTasksPage = new Intent(MainActivity.this, AllTasksActivity.class);
-                    startActivity(goToAllTasksPage);
-                });
-            }
+            Intent goToAllTasksPage = new Intent(MainActivity.this, AllTasksActivity.class);
+            startActivity(goToAllTasksPage);
+        });
+    }
 
-            private void createTaskOneButton(){
-                Button taskOneButton = MainActivity.this.findViewById(R.id.mainActivityTaskOneButton);
+    private void createTaskOneButton() {
+        Button taskOneButton = MainActivity.this.findViewById(R.id.mainActivityTaskOneButton);
 
-                taskOneButton.setOnClickListener(view -> {
-                    Intent goToTaskPage = new Intent(MainActivity.this, TaskDetailPageActivity.class);
-                    startActivity(goToTaskPage);
-                });
-            }
+        taskOneButton.setOnClickListener(view -> {
+            Intent goToTaskPage = new Intent(MainActivity.this, TaskDetailPageActivity.class);
+            startActivity(goToTaskPage);
+        });
+    }
 
-            private void createSettingsButton(){
-                Button settingsButton = MainActivity.this.findViewById(R.id.mainActivitySettingsButton);
+    private void createSettingsButton() {
+        Button settingsButton = MainActivity.this.findViewById(R.id.mainActivitySettingsButton);
 
-                settingsButton.setOnClickListener(view -> {
-                    Intent goToSettingsPage = new Intent(MainActivity.this, SettingsPageTwoActivity.class);
-                    startActivity(goToSettingsPage);
-                });
-            }
+        settingsButton.setOnClickListener(view -> {
+            Intent goToSettingsPage = new Intent(MainActivity.this, SettingsPageActivity.class);
+            startActivity(goToSettingsPage);
+        });
+    }
 
 
-
-        }
+}
 

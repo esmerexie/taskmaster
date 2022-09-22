@@ -11,4 +11,6 @@
     <string name="name">Name</string>
     <string name="enter_name_below">Enter Name Below</string>
     <string name="update">Update</string>
+    <string name="submit">Submit</string>
+    <string name="enter_name">Enter Name</string>
 </resources>

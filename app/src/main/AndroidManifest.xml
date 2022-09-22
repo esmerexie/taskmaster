@@ -14,9 +14,6 @@
         android:theme="@style/Theme.TaskMasterDemo"
         tools:targetApi="31">
         <activity
-            android:name=".SettingsPageTwoActivity"
-            android:exported="false" />
-        <activity
             android:name=".SettingsPageActivity"
             android:exported="false" />
         <activity
