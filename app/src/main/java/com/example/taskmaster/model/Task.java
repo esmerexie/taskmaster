@@ -28,6 +28,9 @@ public class Task {
     public Task() {
     }
 
+    public Task(String taskName, TaskTypeEnum taskTypeEnum, Date newDate) {
+    }
+
     public Long getId() {
         return id;
     }

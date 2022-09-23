@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         TaskDatabase.class,
                         DATABASE_NAME
                 )
+                .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build();
 
