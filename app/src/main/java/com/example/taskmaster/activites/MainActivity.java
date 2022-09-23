@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         List<Task> tasks = new ArrayList<>();
 
-        tasks.add(new Task("Hit the Gym", "GO HIT THE GYM LAZY!", "Not Completed"));
-        tasks.add(new Task("Practice Coding!", "Whiteboard Datastructures and Algo", "Completed"));
-        tasks.add(new Task("Touch some Grass", "Go Outside", "Skeptical"));
+//        tasks.add(new Task("Hit the Gym", "GO HIT THE GYM LAZY!", "Not Completed"));
+//        tasks.add(new Task("Practice Coding!", "Whiteboard Datastructures and Algo", "Completed"));
+//        tasks.add(new Task("Touch some Grass", "Go Outside", "Skeptical"));
 
 
         TaskListRecylerViewAdapter adapter = new TaskListRecylerViewAdapter(tasks);

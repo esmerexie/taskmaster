@@ -1,15 +1,39 @@
 package com.example.taskmaster.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import java.util.Date;
+
+@Entity
 public class Task {
 
+    @PrimaryKey(autoGenerate = true)
+    public Long id;
     private String title;
     private String body;
     private String state;
+    private TaskTypeEnum type;
+    private java.util.Date dateCreated;
 
-    public Task(String title, String body, String state) {
+    public Task(String title, String body, String state, TaskTypeEnum type, Date dateCreated) {
         this.title = title;
         this.body = body;
-        this.state = "Status: " + state;
+        this.state = state;
+        this.type = type;
+        this.dateCreated = dateCreated;
+    }
+
+    public Task() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -34,5 +58,55 @@ public class Task {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public TaskTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(TaskTypeEnum type) {
+        this.type = type;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public enum TaskTypeEnum {
+        GYM("Gym"),
+        EAT("Eat"),
+        CODE("Code");
+
+        private final String taskType;
+
+        TaskTypeEnum(String _taskType) {
+            this.taskType = _taskType;
+        }
+
+        public String getTaskType() {
+            return taskType;
+        }
+
+        public static TaskTypeEnum fromString(String possibleTaskType) {
+            for (TaskTypeEnum type : TaskTypeEnum.values()) {
+                if (type.taskType.equals(possibleTaskType)) {
+                    return type;
+                }
+            }
+            return null;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            if (taskType == null) {
+                return "";
+            }
+            return taskType;
+        }
     }
 }
