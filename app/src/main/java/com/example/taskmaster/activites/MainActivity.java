@@ -3,6 +3,7 @@ package com.example.taskmaster.activites;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,14 +14,17 @@ import android.widget.TextView;
 
 import com.example.taskmaster.R;
 import com.example.taskmaster.adapter.TaskListRecylerViewAdapter;
+import com.example.taskmaster.database.TaskDatabase;
 import com.example.taskmaster.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String DATABASE_NAME = "task_db";
     public static final String PRODUCT_NAME_EXTRA_TAG = "productName";
     SharedPreferences sharedPreferences;
+    TaskDatabase taskDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        taskDatabase = Room.databaseBuilder(
+                        getApplicationContext(),
+                        TaskDatabase.class,
+                        DATABASE_NAME
+                )
+                .fallbackToDestructiveMigration()
+                .build();
+
+        taskDatabase.taskDao().findAll();
+
         createAddTaskButton();
         createAllTaskButton();
         createTaskOneButton();
@@ -36,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setUpTaskRecyclerView();
     }
 
-    private void setUpTaskRecyclerView(){
+    private void setUpTaskRecyclerView() {
         RecyclerView taskRecyclerView = findViewById(R.id.mainActivityRecyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -54,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         String userName = sharedPreferences.getString(SettingsPageActivity.USER_NAME_TAG, "No username");
         TextView userNameEdited = findViewById(R.id.mainActivityUsernameTextView);
