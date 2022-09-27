@@ -35,6 +35,20 @@ Refactored home page to include a RecyclerView to display the task data and its 
 
 ![taskmaster](https://user-images.githubusercontent.com/101059597/191684149-bcf3e550-87a0-4099-90b6-6e04eabe35a4.png)
 
+## Lab 29
+
+## Features
+
+### Add Task Class
+
+Users are able to input a task data with task type, title, description, and status. The information will be stored in a local database and will be rendered in the users main screen.
+
+![addNewTask](https://user-images.githubusercontent.com/101059597/192435081-989d9740-dd0b-479a-a6f6-9cca87be8247.png)
+
+### Example of inputed data
+
+![taskMaster recyclerview](https://user-images.githubusercontent.com/101059597/192435115-e9c0e003-b829-44c1-9dad-84f7187a6130.png)
+
 ## Lab 31
 
 ## Features 
