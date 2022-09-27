@@ -37,6 +37,7 @@ public class AddTaskActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
+//        taskDatabase.taskDao().insertTask(new Task("do something", "test something", "ongoing", "complete", new Date()));
         setUpTypeSpinner();
         setUpSubmitBttn();
 

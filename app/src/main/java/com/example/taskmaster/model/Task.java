@@ -29,7 +29,11 @@ public class Task {
     }
 
     public Task(String taskName, TaskTypeEnum taskTypeEnum, Date newDate) {
+        this.type = taskTypeEnum;
+        this.title = taskName;
+        this.dateCreated = newDate;
     }
+
 
     public Long getId() {
         return id;
