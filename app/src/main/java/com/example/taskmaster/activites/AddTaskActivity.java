@@ -37,7 +37,7 @@ public class AddTaskActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
-//        taskDatabase.taskDao().insertTask(new Task("do something", "test something", "ongoing", "complete", new Date()));
+
         setUpTypeSpinner();
         setUpSubmitBttn();
 
@@ -69,11 +69,19 @@ public class AddTaskActivity extends AppCompatActivity {
         Spinner taskTypeSpinner = findViewById(R.id.addTaskTypeSpinner);
         Button saveNewTaskBttn = findViewById(R.id.addTaskTitleSubmitBttn);
         saveNewTaskBttn.setOnClickListener(view -> {
+
+            Context submitted = getApplicationContext();
+            CharSequence text = "Task Submitted!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(submitted, text, duration);
+            toast.show();
+
             String taskName = ((EditText) findViewById(R.id.addTaskTitleInputText)).getText().toString();
+            String taskBody = ((EditText) findViewById(R.id.addTaskDescriptionInputText)).getText().toString();
             java.util.Date newDate = new Date();
             Task.TaskTypeEnum taskTypeEnum = Task.TaskTypeEnum.fromString(taskTypeSpinner.getSelectedItem().toString());
 
-            Task newTask = new Task(taskName, taskTypeEnum, newDate);
+            Task newTask = new Task(taskName, taskBody, taskTypeEnum, newDate);
 
             taskDatabase.taskDao().insertTask(newTask);
 

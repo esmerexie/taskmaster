@@ -28,9 +28,10 @@ public class Task {
     public Task() {
     }
 
-    public Task(String taskName, TaskTypeEnum taskTypeEnum, Date newDate) {
-        this.type = taskTypeEnum;
+    public Task(String taskName,String taskBody, TaskTypeEnum taskTypeEnum, Date newDate) {
         this.title = taskName;
+        this.body = taskBody;
+        this.type = taskTypeEnum;
         this.dateCreated = newDate;
     }
 
