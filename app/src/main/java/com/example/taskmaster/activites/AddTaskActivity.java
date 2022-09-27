@@ -41,18 +41,6 @@ public class AddTaskActivity extends AppCompatActivity {
         setUpTypeSpinner();
         setUpSubmitBttn();
 
-        Button addTaskSubmitButton = AddTaskActivity.this.findViewById(R.id.addTaskSubmitButton);
-        addTaskSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context submitted = getApplicationContext();
-                CharSequence text = "Task Submitted!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(submitted, text, duration);
-                toast.show();
-            }
-
-        });
     }
 
     private void setUpTypeSpinner(){
