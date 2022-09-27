@@ -43,7 +43,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
     }
 
-    private void setUpTypeSpinner(){
+    private void setUpTypeSpinner() {
         Spinner taskTypeSpinner = findViewById(R.id.addTaskTypeSpinner);
         taskTypeSpinner.setAdapter(new ArrayAdapter<>(
                 this,
@@ -53,7 +53,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
     }
 
-    private void setUpSubmitBttn(){
+    private void setUpSubmitBttn() {
         Spinner taskTypeSpinner = findViewById(R.id.addTaskTypeSpinner);
         Button saveNewTaskBttn = findViewById(R.id.addTaskTitleSubmitBttn);
         saveNewTaskBttn.setOnClickListener(view -> {
@@ -66,10 +66,11 @@ public class AddTaskActivity extends AppCompatActivity {
 
             String taskName = ((EditText) findViewById(R.id.addTaskTitleInputText)).getText().toString();
             String taskBody = ((EditText) findViewById(R.id.addTaskDescriptionInputText)).getText().toString();
+            String taskState = ((EditText) findViewById(R.id.addTaskStatusInputText)).getText().toString();
             java.util.Date newDate = new Date();
             Task.TaskTypeEnum taskTypeEnum = Task.TaskTypeEnum.fromString(taskTypeSpinner.getSelectedItem().toString());
 
-            Task newTask = new Task(taskName, taskBody, taskTypeEnum, newDate);
+            Task newTask = new Task(taskName, taskBody, taskState, taskTypeEnum, newDate);
 
             taskDatabase.taskDao().insertTask(newTask);
 

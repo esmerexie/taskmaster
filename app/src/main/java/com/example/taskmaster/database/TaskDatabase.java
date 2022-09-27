@@ -9,7 +9,7 @@ import com.example.taskmaster.dao.TaskDao;
 import com.example.taskmaster.model.Task;
 
 @TypeConverters({TaskDatabaseConverters.class})
-@Database(entities = {Task.class}, version = 2)
+@Database(entities = {Task.class}, version = 1)
 public abstract class TaskDatabase extends RoomDatabase {
 
     public abstract TaskDao taskDao();
