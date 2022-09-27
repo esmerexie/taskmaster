@@ -57,12 +57,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         taskRecyclerView.setLayoutManager(layoutManager);
 
-        List<Task> tasks = new ArrayList<>();
-
-//        tasks.add(new Task("Hit the Gym", "GO HIT THE GYM LAZY!", "Not Completed"));
-//        tasks.add(new Task("Practice Coding!", "Whiteboard Datastructures and Algo", "Completed"));
-//        tasks.add(new Task("Touch some Grass", "Go Outside", "Skeptical"));
-
+        List<Task> tasks = taskDatabase.taskDao().findAll();
 
         TaskListRecylerViewAdapter adapter = new TaskListRecylerViewAdapter(tasks);
         taskRecyclerView.setAdapter(adapter);

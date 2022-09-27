@@ -37,25 +37,13 @@ public class AddTaskActivity extends AppCompatActivity {
                 .fallbackToDestructiveMigration()
                 .build();
 
-//        taskDatabase.taskDao().insertTask(new Task("do something", "test something", "ongoing", "complete", new Date()));
+
         setUpTypeSpinner();
         setUpSubmitBttn();
 
-        Button addTaskSubmitButton = AddTaskActivity.this.findViewById(R.id.addTaskSubmitButton);
-        addTaskSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context submitted = getApplicationContext();
-                CharSequence text = "Task Submitted!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(submitted, text, duration);
-                toast.show();
-            }
-
-        });
     }
 
-    private void setUpTypeSpinner(){
+    private void setUpTypeSpinner() {
         Spinner taskTypeSpinner = findViewById(R.id.addTaskTypeSpinner);
         taskTypeSpinner.setAdapter(new ArrayAdapter<>(
                 this,
@@ -65,15 +53,24 @@ public class AddTaskActivity extends AppCompatActivity {
 
     }
 
-    private void setUpSubmitBttn(){
+    private void setUpSubmitBttn() {
         Spinner taskTypeSpinner = findViewById(R.id.addTaskTypeSpinner);
         Button saveNewTaskBttn = findViewById(R.id.addTaskTitleSubmitBttn);
         saveNewTaskBttn.setOnClickListener(view -> {
+
+            Context submitted = getApplicationContext();
+            CharSequence text = "Task Submitted!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(submitted, text, duration);
+            toast.show();
+
             String taskName = ((EditText) findViewById(R.id.addTaskTitleInputText)).getText().toString();
+            String taskBody = ((EditText) findViewById(R.id.addTaskDescriptionInputText)).getText().toString();
+            String taskState = ((EditText) findViewById(R.id.addTaskStatusInputText)).getText().toString();
             java.util.Date newDate = new Date();
             Task.TaskTypeEnum taskTypeEnum = Task.TaskTypeEnum.fromString(taskTypeSpinner.getSelectedItem().toString());
 
-            Task newTask = new Task(taskName, taskTypeEnum, newDate);
+            Task newTask = new Task(taskName, taskBody, taskState, taskTypeEnum, newDate);
 
             taskDatabase.taskDao().insertTask(newTask);
 

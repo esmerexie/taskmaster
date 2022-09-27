@@ -113,4 +113,7 @@
     <string name="bodyview">BodyView</string>
     <string name="state">State</string>
     <string name="enter_task_title">Enter Task Title</string>
+    <string name="click_for_task_type">Click For Task Type</string>
+    <string name="submit_new_task">Submit New Task</string>
+    <string name="enter_task_description">Enter Task Description</string>
 </resources>

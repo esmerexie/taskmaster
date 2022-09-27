@@ -17,20 +17,14 @@ public class Task {
     private TaskTypeEnum type;
     private java.util.Date dateCreated;
 
-    public Task(String title, String body, String state, TaskTypeEnum type, Date dateCreated) {
-        this.title = title;
-        this.body = body;
-        this.state = state;
-        this.type = type;
-        this.dateCreated = dateCreated;
-    }
-
     public Task() {
     }
 
-    public Task(String taskName, TaskTypeEnum taskTypeEnum, Date newDate) {
-        this.type = taskTypeEnum;
+    public Task(String taskName, String taskBody, String taskState, TaskTypeEnum taskTypeEnum, Date newDate) {
         this.title = taskName;
+        this.body = taskBody;
+        this.state = taskState;
+        this.type = taskTypeEnum;
         this.dateCreated = newDate;
     }
 
